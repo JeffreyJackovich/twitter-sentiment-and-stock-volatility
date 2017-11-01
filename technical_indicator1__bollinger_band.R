@@ -1,8 +1,6 @@
 # Author: Jeffrey Jackovich
 # Date: 10/30/2017
 
-
-
 if (!require("TTR")) {
   install.packages("TTR")
   library(TTR)
