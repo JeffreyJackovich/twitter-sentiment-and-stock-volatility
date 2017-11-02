@@ -18,12 +18,11 @@ if (!require("SnowballC")) {
   install.packages("SnowballC")
   library(SnowballC)
 }
-
+ 
 # Verify twitter tweet df
 head(twtr.tweets.df)
 length(twtr.tweets.df$text)
-length(twtr.tweets.df$text)
-
+ 
 # Convert raw tweets to a Corpus 
 tweetsToCorpus <- function(x) {
   data.source <- VectorSource(x)
@@ -65,7 +64,8 @@ corpusToPreProcessedCorpus <- function(x) {
   
   # Step 5.a) remove the stock abbreviation specific words  
   data.corpus <- tm_map(data.corpus,
-                        removeWords, c("TWTR", "TWITTER", "twtr", "twitter", "stock", "market"))
+                        removeWords, c("TWTR", "TWITTER", "twtr", "twitter", 
+                                       "stock", "STOCK", "market"))
   
   # Step 6.) remove number words
   removeNumberWords <- function(n) {
@@ -93,7 +93,7 @@ tdm <- TermDocumentMatrix(corpus)
 inspect(tdm)
 
 # sparse tdm: source: https://stats.stackexchange.com/questions/160539/is-this-interpretation-of-sparsity-accurate
-tdms <- removeSparseTerms(tdm1, .98)
+tdms <- removeSparseTerms(tdm, .98)
 inspect(tdms)
 
 ################################################################
@@ -105,11 +105,11 @@ inspect(tdms)
 ###########################################################################
 # 1.) Find the most frequent terms
 ###########################################################################
-findFreqTerms(tdm, lowfreq = 1500)
+# findFreqTerms(tdm, lowfreq = 1500)
 findFreqTerms(tdms, lowfreq = 1500)
 
 # Convert to matrix
-tdm.matrix <- as.matrix(tdm) #error Output: "Error: cannot allocate vector of size 35.3 Gb"  
+# tdm.matrix <- as.matrix(tdm) #error Output: "Error: cannot allocate vector of size 35.3 Gb"  
 # Troubleshoot 
 # head(twtr.tweets.df)
 # length(twtr.tweets.df$text)
@@ -244,10 +244,13 @@ if (!require("ggplot2")) {
   install.packages("ggplot2")
   library(ggplot2)
 }
-
 if (!require("dplyr")) {
   install.packages("dplyr")
   library(dplyr)
+}
+if (!require("gridExtra")) {
+  install.packages("gridExtra")
+  library(gridExtra)
 }
 
 # convert "text" column to class "character"
@@ -259,9 +262,9 @@ twtr.tweets.df <- cbind(twtr.tweets.df, twtrSentiment)
 head(twtr.tweets.df)
 
 # Verify Sentiment column indicies
-head(twtr.tweets.df[,c(12:21)])
+head(twtr.tweets.df[,c(13:22)])
 
-sentimentTotals <- data.frame(colSums(twtr.tweets.df[,c(12:21)]))
+sentimentTotals <- data.frame(colSums(twtr.tweets.df[,c(13:22)]))
 names(sentimentTotals) <- "count"
 sentimentTotals <- cbind("sentiment" = rownames(sentimentTotals), sentimentTotals)
 rownames(sentimentTotals) <- NULL
@@ -271,9 +274,11 @@ ggplot(data = sentimentTotals, aes(x = sentiment, y = count)) +
   geom_bar(aes(fill = sentiment), stat = "identity") +
   theme(legend.position = "none") +
   xlab("Sentiment") + ylab("Total Count") + 
-  ggtitle("Total Sentiment Score for All $TWTR Tweets")
+  ggtitle("Sentiment Score for $TWTR Tweets (10-29-2017 to 11-01-16) ")
 
- 
+head(twtr.tweets.df$date_time)
+tail(twtr.tweets.df$date_time)
+
 ######################
 # sentiment over time
 #####################
@@ -298,6 +303,42 @@ sentLongPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanva
   ggtitle("$TWTR - Sentiment Over Time")
 
 
+# Sentiment longitudional plot - Corrected legend
+# sentPlot <- 
+
+sentPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
+  geom_line(size = 0.75, alpha = 1, aes(color = sentiment)) +
+  geom_point(size = 0.5) +
+  ylim(0, NA) + 
+  scale_colour_manual(values = c("springgreen4", "firebrick3")) +
+  scale_x_date(breaks = date_breaks("1 month"), 
+               labels = date_format("%b-%Y")) +
+  ylab("Average sentiment score") + 
+  ggtitle("$TWTR - Sentiment Over Time") +
+  theme(legend.position = c(0.95,0.95), 
+        legend.text = element_text(size = 8),
+        legend.background = element_rect(color = "black")) +
+  xlab("Date")
+
+# BollingerBands plot- VERSION 2 *to combine
+bb_plot_v2 <- ggplot(data= TWTR_df_bb, aes(x = Date, y = Close)) +
+  ggtitle("$TWTR Bollinger Bands (sma = 20)") +
+  ylab("Close price (usd)") +
+  geom_line(size=0.75) +
+  geom_bbands(aes(high = High, low = Low, close = Close), ma_fun = SMA, n = 20, size = 0.75,
+              color_ma = "royalblue4", color_bands = "red1" ) +
+  coord_x_date(xlim = c("2016-11-01", "2017-10-30"), ylim = c(5,30)) +
+  scale_x_date(date_labels = "%b-%Y", date_breaks = "1 month" ) + 
+  annotate("text", x = c(buy.date1, buy.date2, buy.date3, buy.date4,buy.date5, buy.date6, buy.date7), 
+           y = c(buy.price1, buy.price2, buy.price3, buy.price4, buy.price5, buy.price6, buy.price7), 
+           label = sprintf("Buy", buy.date1), size = 3, 
+           vjust = 2, colour = "blue",fontface = "bold") 
+
+# combine BBplot and Sentiment
+grid.arrange(sentPlot, bb_plot_v2)   
+
+
+
 # BollingerBands plot -  VERSION 1
 TWTR_df_bb %>%
   ggplot(aes(x = Date, y = Close)) +
@@ -313,24 +354,8 @@ TWTR_df_bb %>%
            label = sprintf("Buy", buy.date1), size = 3, 
            vjust = 2, colour = "blue",fontface = "bold")
 
-# BollingerBands plot- VERSION 2 *to combine
-bbVer2Plot <- ggplot(data= TWTR_df_bb, aes(x = Date, y = Close)) +
-  ggtitle("$TWTR Bollinger Bands (sma = 20)") +
-  ylab("Close price (usd)") +
-  geom_line(size=0.75) +
-  geom_bbands(aes(high = High, low = Low, close = Close), ma_fun = SMA, n = 20, size = 0.75,
-              color_ma = "royalblue4", color_bands = "red1") +
-  coord_x_date(xlim = c("2017-04-01", "2017-10-30"), ylim = c(5,30)) +
-  scale_x_date(date_labels = "%b %d %y", date_breaks = "1 month" ) +
-  annotate("text", x = c(buy.date1, buy.date2, buy.date3, buy.date4,buy.date5, buy.date6, buy.date7), 
-           y = c(buy.price1, buy.price2, buy.price3, buy.price4, buy.price5, buy.price6, buy.price7), 
-           label = sprintf("Buy", buy.date1), size = 3, 
-           vjust = 2, colour = "blue",fontface = "bold")
 
 
-# combine BBplot and Sentiment
-# visuals <- rbind(posnegtime,TWTR_df_bb )
-   
 
 # BollingerBands plot
 TWTR_df_bb %>%

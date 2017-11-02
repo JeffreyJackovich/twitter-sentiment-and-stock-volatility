@@ -3,7 +3,7 @@
 
 
 # path to historical $TWTR data 
-twtr.hist.path <- "<insert path> \\twtr_stock_10.29.2017_to_03.31.17.csv"
+twtr.hist.path <- "<insert path> \\twtr_stock_10.29.2017_to_11.01.16.csv"
 
 twtr.his.data <- read.csv(twtr.hist.path, header = TRUE)
 head(twtr.his.data)
