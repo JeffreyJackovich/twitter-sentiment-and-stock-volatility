@@ -8,7 +8,7 @@
  
 <h2><strong>Methodology:</strong></h2> 
 <ul>1.<a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R"> Obtain historical stock data</a> via Google Finance.</ul>
-<ul>2. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger Bands®</a></ul>
+<ul>2. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger BandsÂ®</a></ul>
 <ul>3. Obtain Tweets via:</ul>
 <ul><ul>  a. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_twitterAPI.R">Twitter API</a></ul></ul>
 
@@ -17,5 +17,5 @@
 <ul>5. Sentiment Pre-Processing and Analysis:</ul>
 
 
-<h2><strong>Results:</strong></h2> 
-<ul>1. $TWTR - Bollinger Band®</ul>
+<h2><strong>Overall Result:</strong></h2> 
+<p>src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/%24twtr__sentiment_and_bband_Rplot.png" </p>
