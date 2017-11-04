@@ -291,6 +291,7 @@ posnegtime$sentiment = factor(posnegtime$sentiment,levels(posnegtime$sentiment)[
 
 
 # Sentiment longitudional plot
+# legend modifications source: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
 sentLongPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
   geom_line(size = 0.75, alpha = 0.7, aes(color = sentiment)) +
   geom_point(size = 0.5) +
