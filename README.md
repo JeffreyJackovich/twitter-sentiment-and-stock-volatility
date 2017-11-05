@@ -6,9 +6,9 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
 
 # Contents
 <div>
-    1. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#1-introduction">Introduction</a>
-      1.1 Sentiment Analysis
-      1.2 Twitter
+    <ul>1. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#1-introduction">Introduction</a></ul>
+    <ul><ul>1.1 Sentiment Analysis</ul></ul>
+    <ul><ul>1.2 Twitter</ul></ul>
     2. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#2-methodology">Methodology</a>
       2.1 Stock Price Dataset
       2.2 Technical Indicator
