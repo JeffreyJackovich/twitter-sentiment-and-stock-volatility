@@ -5,7 +5,7 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
 ### October, 2017
 
 # Contents
-<p> 
+<div>
     1. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#1-introduction">Introduction</a>
       1.1 Sentiment Analysis
       1.2 Twitter
@@ -18,7 +18,7 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
     3. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#3-results">Results</a>
     4. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#4-future-work">Future Work</a>
     5. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#5-conclusion">Conclusion</a>
-</p>
+</div>
 
 ## 1. Introduction:  
 
@@ -51,9 +51,6 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 
 ### 2.1 Stock Price Dataset
-
-<a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#1-introduction">Introduction</a>
-
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R">Obtain historical stock data</a> via Google Finance.</ul>
 
 
