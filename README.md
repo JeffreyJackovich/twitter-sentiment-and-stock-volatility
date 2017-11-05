@@ -75,9 +75,10 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 ## 3. Results: 
 <p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/%24twtr__sentiment_and_bband_Rplot.png"> </p>
 
+<br>
 
 I categorized all 169974 tweets representing "anger", "anticipation", "disgust", "fear", "joy", "sadness", "surprise", and "trust."
-<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/total_sentiment_score.png"> </p>
+<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/total_sentiment_score_8_features.png"> </p>
 
 ## 4. Future Work:
 Implement a Granger causality analysis and Self-Organizing Fuzzy Neural Network to investigate the hypothesis that public mood states are predictive of changes in stock closing values.
