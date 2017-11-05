@@ -1,3 +1,6 @@
+SENTIMENT ANALYSIS OF "$TWTR" and Technical Indicator Correlation
+=================================================================
+
 ### Jeffrey Jackovich
 ### October, 2017
 
