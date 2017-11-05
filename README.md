@@ -17,6 +17,7 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
       2.5 Twitter Sentiment Corpus
     3. Results
     4. Future Work
+    5. Conclusion
 
 
 ## 1. Introduction:  
@@ -74,15 +75,20 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 ## 3. Results: 
 <p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/%24twtr__sentiment_and_bband_Rplot.png"> </p>
-
+Fig 1. Longitudinal sentiment of positive and negative scores compared to Bollinger Bands (BB) buy indicators. 
+<br>
 <br>
 
-I categorized all 169974 tweets representing "anger", "anticipation", "disgust", "fear", "joy", "sadness", "surprise", and "trust."
+
 <p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/total_sentiment_score_8_features.png"> </p>
+Fig 2. All 169,974 tweets representing "anger", "anticipation", "disgust", "fear", "joy", "sadness", "surprise", and "trust."
 
 ## 4. Future Work:
 Implement a Granger causality analysis and Self-Organizing Fuzzy Neural Network to investigate the hypothesis that public mood states are predictive of changes in stock closing values.
 
+
+## 5. Conclusion:
+A visual comparison of Sentiment over time vs BB buy indicator needs more indepth analysis to assess if and how predictive sentiment is on price.       
 
 ## References:
 
