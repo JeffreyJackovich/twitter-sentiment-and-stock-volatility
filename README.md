@@ -1,4 +1,4 @@
-SENTIMENT ANALYSIS OF "$TWTR" and Technical Indicator Correlation
+Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
 =================================================================
 
 ### Jeffrey Jackovich
