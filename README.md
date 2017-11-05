@@ -9,15 +9,15 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
     <ul>1. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#1-introduction">Introduction</a></ul>
     <ul><ul>1.1 Sentiment Analysis</ul></ul>
     <ul><ul>1.2 Twitter</ul></ul>
-    2. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#2-methodology">Methodology</a>
-      2.1 Stock Price Dataset
-      2.2 Technical Indicator
-      2.3 Tweet Dataset sourcing options
-      2.4 Tweet's Pre-Processing
-      2.5 Twitter Sentiment Corpus
-    3. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#3-results">Results</a>
-    4. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#4-future-work">Future Work</a>
-    5. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#5-conclusion">Conclusion</a>
+    <ul>2. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#2-methodology">Methodology</a></ul>
+      <ul><ul>2.1 Stock Price Dataset</ul></ul>
+      <ul><ul>2.2 Technical Indicator</ul></ul>
+      <ul><ul>2.3 Tweet Dataset sourcing options</ul></ul>
+      <ul><ul>2.4 Tweet's Pre-Processing</ul></ul>
+      <ul><ul>2.5 Twitter Sentiment Corpus</ul></ul>
+    <ul>3. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#3-results">Results</a></ul>
+    <ul>4. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#4-future-work">Future Work</a></ul>
+    <ul>5. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#5-conclusion">Conclusion</a></ul>
 </div>
 
 ## 1. Introduction:  
