@@ -16,9 +16,10 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
       2.4 Tweet's Pre-Processing
       2.5 Twitter Sentiment Corpus
     3. Results
+    4. Future Work
 
 
-## 1 Introduction:  
+## 1. Introduction:  
 
 ###  1.1  Sentiment Analysis
 
@@ -43,7 +44,7 @@ industry and politics. From the perspective of Sentiment
 Analysis, we discuss a few characteristics of Twitter:
 
  
-## 2 Methodology: 
+## 2. Methodology: 
 I used Twitter's "cashtag" symbol \$ and stock symbol ("TWTR") to obtain Twitter's stock sentiment, to determine if there was a correlation between sentiment and stock price.[2] [3] 
 I also obtained Twitters stock price data to assess how accurate  Bollinger Bands® are as a technical indicator.
 
@@ -70,8 +71,12 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/sentiment_pre-processing_and_analysis.R">Sentiment Analysis</a></ul>
 
 
-## 3 Results: 
+## 3. Results: 
 <p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/%24twtr__sentiment_and_bband_Rplot.png"> </p>
+
+
+## 4. Future Work:
+Implement a Granger causality analysis and Self-Organizing Fuzzy Neural Network to investigate the hypothesis that public mood states are predictive of changes in stock closing values.
 
 
 ## References:

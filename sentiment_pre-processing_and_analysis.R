@@ -274,11 +274,11 @@ ggplot(data = sentimentTotals, aes(x = sentiment, y = count)) +
   geom_bar(aes(fill = sentiment), stat = "identity") +
   theme(legend.position = "none") +
   xlab("Sentiment") + ylab("Total Count") + 
-  ggtitle("Sentiment Score for $TWTR Tweets (10-29-2017 to 11-01-16) ")
+  ggtitle("Total Sentiment Score for All $TWTR Containing Tweets \nBetween: 11-01-16 to 10-29-17")
 
 head(twtr.tweets.df$date_time)
 tail(twtr.tweets.df$date_time)
-
+length(twtr.tweets.df$date_time)
 ######################
 # sentiment over time
 #####################
