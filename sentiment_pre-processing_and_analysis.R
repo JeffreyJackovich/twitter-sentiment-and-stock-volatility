@@ -272,9 +272,12 @@ rownames(sentimentTotals) <- NULL
 # Total sentiment Plot
 ggplot(data = sentimentTotals, aes(x = sentiment, y = count)) +
   geom_bar(aes(fill = sentiment), stat = "identity") +
-  theme(legend.position = "none") +
+  theme(legend.position = "none",
+        plot.caption=element_text(hjust=0.01)) +
   xlab("Sentiment") + ylab("Total Count") + 
-  ggtitle("Total Sentiment Score for All $TWTR Containing Tweets \nBetween: 11-01-16 to 10-29-17")
+  ggtitle("Total Sentiment Score for All $TWTR Tweets \n(November 2016 to November 2017)") +
+  labs(caption = "Fig. 2. Categorizing all 169,974 tweets.")
+   
 
 head(twtr.tweets.df$date_time)
 tail(twtr.tweets.df$date_time)
@@ -333,7 +336,11 @@ bb_plot_v2 <- ggplot(data= TWTR_df_bb, aes(x = Date, y = Close)) +
   annotate("text", x = c(buy.date1, buy.date2, buy.date3, buy.date4,buy.date5, buy.date6, buy.date7), 
            y = c(buy.price1, buy.price2, buy.price3, buy.price4, buy.price5, buy.price6, buy.price7), 
            label = sprintf("Buy", buy.date1), size = 3, 
-           vjust = 2, colour = "blue",fontface = "bold") 
+           vjust = 2, colour = "blue",fontface = "bold") +
+  theme(plot.caption=element_text(hjust=0.01)) +
+  labs(caption = "Fig. 1. Longitudinal sentiment compared to Bollinger Bands (BB) buy indicators.")
+
+
 
 # combine BBplot and Sentiment
 grid.arrange(sentPlot, bb_plot_v2)   
