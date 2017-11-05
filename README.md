@@ -69,6 +69,7 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 ### 2.5 Twitter Sentiment Corpus
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/sentiment_pre-processing_and_analysis.R">Sentiment Analysis</a></ul>
+<ul><ul>I used R's <a href="https://cran.r-project.org/web/packages/tm/vignettes/tm.pdf">tm package</a> (which provides text mining functions) and <a href="https://github.com/mjockers/syuzhet">syuzhet package</a> (which includes the <a href="http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a> algorithm) to analyze the tweets sentiment.</ul></ul>
 
 
 ## 3. Results: 
