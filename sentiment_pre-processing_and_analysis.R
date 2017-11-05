@@ -262,9 +262,9 @@ twtr.tweets.df <- cbind(twtr.tweets.df, twtrSentiment)
 head(twtr.tweets.df)
 
 # Verify Sentiment column indicies
-head(twtr.tweets.df[,c(13:22)])
+head(twtr.tweets.df[,c(13:20)])
 
-sentimentTotals <- data.frame(colSums(twtr.tweets.df[,c(13:22)]))
+sentimentTotals <- data.frame(colSums(twtr.tweets.df[,c(13:20)]))
 names(sentimentTotals) <- "count"
 sentimentTotals <- cbind("sentiment" = rownames(sentimentTotals), sentimentTotals)
 rownames(sentimentTotals) <- NULL

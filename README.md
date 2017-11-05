@@ -45,7 +45,7 @@ Analysis, we discuss a few characteristics of Twitter:
 
  
 ## 2. Methodology: 
-I used Twitter's "cashtag" symbol \$ and stock symbol ("TWTR") to obtain Twitter's stock sentiment, to determine if there was a correlation between sentiment and stock price.[2] [3] 169974
+I used Twitter's "cashtag" symbol \$ and stock symbol ("TWTR") to obtain Twitter's stock sentiment, to determine if there was a correlation between sentiment and stock price.[2] [3] 
 I also obtained Twitters stock price data to assess how accurate  Bollinger Bands® are as a technical indicator.
 
 
@@ -75,6 +75,8 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 ## 3. Results: 
 <p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/%24twtr__sentiment_and_bband_Rplot.png"> </p>
 
+
+I categorized all 169974 tweets representing "anger", "anticipation", "disgust", "fear", "joy", "sadness", "surprise", and "trust."
 <p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/total_sentiment_score.png"> </p>
 
 ## 4. Future Work:
