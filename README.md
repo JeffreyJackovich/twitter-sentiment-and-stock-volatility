@@ -47,26 +47,28 @@ Analysis, we discuss a few characteristics of Twitter:
  
 ## 2. Methodology: 
 I used Twitter's "cashtag" symbol \$ and stock symbol ("TWTR") to obtain Twitter's stock sentiment, to determine if there was a correlation between sentiment and stock price.[2] [3] 
-I also obtained Twitters stock price data to assess how accurate  Bollinger Bands® are as a technical indicator.
+I also obtained Twitters stock price data to assess how accurate  Bollinger BandsÂ® are as a technical indicator.
 
 
 ### 2.1 Stock Price Dataset
-<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R">Obtain historical stock data</a> via Google Finance.</ul>
+<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R" target="_blank">Obtain historical stock data</a> via Google Finance</ul>
 
 
 ### 2.2 Technical Indicator
-<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger Bands ®</a></ul>
+<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R" target="_blank">Technical Indicator Analysis: Bollinger BandsÂ®</a></ul>
 
 
-### 2.3 Tweet Dataset sourcing options
-<ul>a.<a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_twitterAPI.R">Twitter API</a></ul>
+### 2.3 Tweet Dataset source options:
+<ul>a. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_twitterAPI.R">Twitter API</a></ul>
 
-<ul>b.<a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_GetOldTweets-python.py">GetOldTweets-python</a></ul>
+<ul>b. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_GetOldTweets-python.py">GetOldTweets-python</a></ul>
 
 
 ### 2.4 Tweet's Pre-Processing 
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/historical_tweet_pre-sentiment_diligence.R">Tweets diligence</a></ul>
-
+<ul>Number of Characters per Tweet</ul>
+<ul>Number of Words per Tweet</ul>
+<ul>Number of Unique Words per Tweet</ul>
 
 ### 2.5 Twitter Sentiment Corpus
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/sentiment_pre-processing_and_analysis.R">Sentiment Analysis</a></ul>
@@ -81,9 +83,12 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 <p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/total_sentiment_scores_with_caption.png"> </p>
 
+<br>
+<br>
 
 ## 4. Future Work:
-Implement a Granger causality analysis and Self-Organizing Fuzzy Neural Network to investigate the hypothesis that public mood states are predictive of changes in stock closing values.
+Analysis: 
+Implement a Granger causality analysis and Self-Organizing Fuzzy Neural Network to further investigate the hypothesis that public mood states are predictive of changes in stock closing values. 
 
 
 ## 5. Conclusion:
