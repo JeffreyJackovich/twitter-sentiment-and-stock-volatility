@@ -55,7 +55,7 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 
 ### 2.2 Technical Indicator
-<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger Bands ®</a></ul>
+<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger Bands®</a></ul>
 
 
 ### 2.3 Tweet Dataset source options:
@@ -83,7 +83,7 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 
 ## 4. Future Work:
-Implement a Granger causality analysis and Self-Organizing Fuzzy Neural Network to investigate the hypothesis that public mood states are predictive of changes in stock closing values.
+Implement a Granger causality analysis and Self-Organizing Fuzzy Neural Network to further investigate the hypothesis that public mood states are predictive of changes in stock closing values. 
 
 
 ## 5. Conclusion:
