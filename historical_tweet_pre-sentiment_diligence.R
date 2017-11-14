@@ -75,14 +75,66 @@ twtr.tweets.df$charsintweet <- sapply(twtr.tweets.df$text, function(x) nchar(x))
 
 table(twtr.tweets.df$charsintweet)
 
+# Number of characters per tweet
 ggplot(data = twtr.tweets.df, aes(x = charsintweet)) +
   geom_histogram(aes(fill = ..count..), binwidth = 4) +
   theme(legend.position = "none") +
   xlab("Characters per Tweet") + ylab("Number of tweets") + 
   scale_fill_gradient(low = "midnightblue", high = "aquamarine4")+
-  ggtitle("$TWTR - Number of characters per Tweet")
+  theme(plot.caption=element_text(hjust=0.01)) +
+  labs(caption = "Figure 1: Examining the number of characters per tweet containing $TWTR posted between \nNovember 2016 to November 2017 for possible outliers.")
+
+# ggtitle("$TWTR - Number of characters per Tweet") +
 
 #check tweet indicies and dates with more than 400 characters
 twtr.tweets.df[(twtr.tweets.df$charsintweet > 400),]
+
+#
+# Frequency Analysis:
+# source: https://sites.google.com/site/miningtwitter/questions/frequencies
+
+#######################################
+# number of words per tweet 
+#######################################
+head(twtr.tweets.df)
+twtr.tweets.df$words <- strsplit(twtr.tweets.df$text, " ")
+head(twtr.tweets.df)
+twtr.tweets.df$wordsintweet <- sapply(twtr.tweets.df$words, function(x) length(x))
+head(twtr.tweets.df)
+
+ggplot(data = twtr.tweets.df, aes(x = wordsintweet)) +
+  geom_histogram(aes(fill = ..count..), binwidth = 4) +
+  theme(legend.position = "none") +
+  xlab("Word count per Tweet") + ylab("Number of tweets") + 
+  scale_fill_gradient(low = "midnightblue", high = "aquamarine4")+
+  ggtitle("$TWTR - Distribution of words per Tweet")
+
+#######################################
+#  number of Unique words per tweet 
+#######################################
+twtr.tweets.df$uniqueWordsInTweet <- sapply(twtr.tweets.df$words, function(x) length(unique(x)))
+head(twtr.tweets.df)
+
+ggplot(data = twtr.tweets.df, aes(x = uniqueWordsInTweet)) +
+  geom_histogram(aes(fill = ..count..), binwidth = 4) +
+  theme(legend.position = "none") +
+  xlab("Unique Word Count per Tweet") + ylab("Number of tweets") + 
+  scale_fill_gradient(low = "midnightblue", high = "aquamarine4")+
+  ggtitle("$TWTR - Distribution of Unique Words per Tweet")
+
+#######################################
+#  number of http links per tweet 
+#######################################
+twtr.tweets.df$httpPerTweet <- sapply(twtr.tweets.df$text, function(x) length(grep("http", x)))
+
+head(twtr.tweets.df)
+
+ggplot(data = twtr.tweets.df, aes(x = httpPerTweet)) +
+  geom_histogram(aes(fill = ..count..), binwidth = 4) +
+  theme(legend.position = "none") +
+  xlab("http link Count per Tweet") + ylab("Number of tweets") + 
+  scale_fill_gradient(low = "midnightblue", high = "aquamarine4")+
+  ggtitle("$TWTR - Distribution of http links per Tweet")
+
 
 # possibly return and remove outlier to assess change to sentiment

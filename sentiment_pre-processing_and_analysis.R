@@ -96,6 +96,8 @@ inspect(tdm)
 tdms <- removeSparseTerms(tdm, .98)
 inspect(tdms)
 
+save(tdms, file = "TDMSparse_.98__twtr_tweets")
+
 ################################################################
 ################################################################ 
 # Sentiment Analysis - Diligence  
@@ -155,9 +157,12 @@ wordcloud(words = names(twtr.wf.sorted),
 ggplot(twtr.df[1:20,], aes(x=reorder(word, freq), y=freq)) +
   geom_bar(stat = "identity", fill="tomato") +
   coord_flip() +
-  labs(title="$TWTR - Most Frequent Words", x="Word", y="Frequency")
+  labs(title="Most Frequent Words in $TWTR Tweets \ntweet created dates: 11/2016 to 11/2017", x="Word", y="Frequency") +
+  theme(plot.caption=element_text(hjust=0.01)) +
+  labs(caption = "Figure 3: Top 20 most frequent words.")
 
 head(twtr.df)
+length(twtr.df)
 ############################
 ############################
 # Sentiment Analysis Methods
@@ -166,15 +171,17 @@ head(twtr.df)
 
 
 ###########################################################################
+# *****TO NOTE: I DID NOT use this method for my results****** 
+#   ******I included this as reference to understand the underlying mechanics of sentiment analysis*****
 # Method 1 - Basic: 
 #       - Using the positive and negative word lists, compute the sentiment score 
 #       for all the tweets.
 ###########################################################################
-path_to_sentiment_positive_file = "C:\\Users\\jeff\\Desktop\\bu\\Fall_1_2017\\assignment_submissions\\final_project\\positive-words.txt"
+path_to_sentiment_positive_file = "C:\\positive-words.txt"
 pos.words = scan(path_to_sentiment_positive_file,
                  what = 'character')
 
-path_to_sentiment_negative_file = "C:\\Users\\jeff\\Desktop\\bu\\Fall_1_2017\\assignment_submissions\\final_project\\negative-words.txt"
+path_to_sentiment_negative_file = "C:\\negative-words.txt"
 neg.words = scan(path_to_sentiment_negative_file,
                  what = 'character')
 
@@ -213,7 +220,7 @@ twtr.tweets.1 <- iconv(twtr.tweets.df$text, "latin1", "ASCII", sub="")
 twtr.tweets.1[[3]]
 
 ##################################
-# Basic sentiment score calculation
+# BASIC SENTIMENT -  score calculation
 ##################################
 twtr.scores.basic <- sapply(twtr.tweets.1, sentiment, pos.words, neg.words)
 
@@ -310,7 +317,9 @@ sentLongPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanva
 # Sentiment longitudional plot - Corrected legend
 # sentPlot <- 
 
-sentPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
+sentPlot <- 
+  
+ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
   geom_line(size = 0.75, alpha = 1, aes(color = sentiment)) +
   geom_point(size = 0.5) +
   ylim(0, NA) + 
