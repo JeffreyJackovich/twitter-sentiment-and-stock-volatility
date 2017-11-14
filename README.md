@@ -66,9 +66,10 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 ### 2.4 Tweet's Pre-Processing 
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/historical_tweet_pre-sentiment_diligence.R">Tweets diligence</a></ul>
-<ul>Number of Characters per Tweet</ul>
-<ul>Number of Words per Tweet</ul>
-<ul>Number of Unique Words per Tweet</ul>
+<ul><ul>Number of Characters per Tweet</ul></ul>
+<ul><ul><p><img width="500"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/numOfCharsPerTweet__twtr.png"> </p></ul></ul>
+<ul><ul>Number of Words per Tweet</ul></ul>
+<ul><ul>Number of Unique Words per Tweet</ul></ul>
 
 ### 2.5 Twitter Sentiment Corpus
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/sentiment_pre-processing_and_analysis.R">Sentiment Analysis</a></ul>
@@ -76,15 +77,18 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 
 ## 3. Results: 
-<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/longitudinal_sentiment_with_caption.png"> </p>
+<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/longitudinalSentAndBolligerBand__twtr.png"> </p>
  
 <br>
 <br>
 
-<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/total_sentiment_scores_with_caption.png"> </p>
+<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/totalTweetSentiment__twtr.png"> </p>
 
 <br>
 <br>
+
+<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/mostFrequentWords__twtr.png"> </p>
+
 
 ## 4. Future Work:
 Analysis: 
