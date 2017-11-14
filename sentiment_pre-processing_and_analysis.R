@@ -21,7 +21,9 @@ if (!require("SnowballC")) {
  
 # Verify twitter tweet df
 head(twtr.tweets.df)
-length(twtr.tweets.df$text)
+length(twtr.tweets.df$text) 
+
+ 
  
 # Convert raw tweets to a Corpus 
 tweetsToCorpus <- function(x) {
@@ -96,7 +98,7 @@ inspect(tdm)
 tdms <- removeSparseTerms(tdm, .98)
 inspect(tdms)
 
-save(tdms, file = "TDMSparse_.98__twtr_tweets")
+save(tdms, file = "TDMSparse__twtr_11-14-2017")
 
 ################################################################
 ################################################################ 
@@ -157,10 +159,11 @@ wordcloud(words = names(twtr.wf.sorted),
 ggplot(twtr.df[1:20,], aes(x=reorder(word, freq), y=freq)) +
   geom_bar(stat = "identity", fill="tomato") +
   coord_flip() +
-  labs(title="Most Frequent Words in $TWTR Tweets \ntweet created dates: 11/2016 to 11/2017", x="Word", y="Frequency") +
+  labs( x="Word", y="Frequency") +
   theme(plot.caption=element_text(hjust=0.01)) +
-  labs(caption = "Figure 3: Top 20 most frequent words.")
+  labs(caption = "Figure 4: Top 20 most frequent words in tweets containing $TWTR posted between \nNovember 2016 to November 2017.")
 
+#title="Most Frequent Words in $TWTR Tweets \ntweet created dates: 11/2016 to 11/2017",
 head(twtr.df)
 length(twtr.df)
 ############################
@@ -259,9 +262,15 @@ if (!require("gridExtra")) {
   install.packages("gridExtra")
   library(gridExtra)
 }
+if (!require("tidyquant")) {
+  install.packages("tidyquant")
+  library(tidyquant)
+}
 
-# convert "text" column to class "character"
+# convert "text" columnn to class "character"
 twtr.tweets.df$text <- as.character(twtr.tweets.df$text)
+
+# sentiment analysis functions
 twtrSentiment <- get_nrc_sentiment(twtr.tweets.df$text)
 
 twtr.tweets.df <- cbind(twtr.tweets.df, twtrSentiment)
@@ -269,9 +278,9 @@ twtr.tweets.df <- cbind(twtr.tweets.df, twtrSentiment)
 head(twtr.tweets.df)
 
 # Verify Sentiment column indicies
-head(twtr.tweets.df[,c(13:20)])
+head(twtr.tweets.df[,c(17:24)])
 
-sentimentTotals <- data.frame(colSums(twtr.tweets.df[,c(13:20)]))
+sentimentTotals <- data.frame(colSums(twtr.tweets.df[,c(17:24)]))
 names(sentimentTotals) <- "count"
 sentimentTotals <- cbind("sentiment" = rownames(sentimentTotals), sentimentTotals)
 rownames(sentimentTotals) <- NULL
@@ -282,9 +291,11 @@ ggplot(data = sentimentTotals, aes(x = sentiment, y = count)) +
   theme(legend.position = "none",
         plot.caption=element_text(hjust=0.01)) +
   xlab("Sentiment") + ylab("Total Count") + 
-  ggtitle("Total Sentiment Score for All $TWTR Tweets \n(November 2016 to November 2017)") +
-  labs(caption = "Fig. 2. Categorizing all 169,974 tweets.")
+  labs(caption = "Figure 5: Categorizing the Total Sentiment Score for all 169,974 $TWTR tweets posted between \nNovember 2016 to November 2017.")
    
+ 
+ 
+#  ggtitle("s \n(November 2016 to November 2017)")
 
 head(twtr.tweets.df$date_time)
 tail(twtr.tweets.df$date_time)
@@ -300,9 +311,54 @@ names(posnegtime) <- c("date_time", "sentiment", "meanvalue")
 posnegtime$sentiment = factor(posnegtime$sentiment,levels(posnegtime$sentiment)[c(2,1)])
 
 
-# Sentiment longitudional plot
+
+# Sentiment longitudional plot - Corrected legend
 # legend modifications source: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
-sentLongPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
+sentPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
+  geom_line(size = 0.75, alpha = 1, aes(color = sentiment)) +
+  geom_point(size = 0.5) +
+  ylim(0, NA) + 
+  scale_colour_manual(values = c("springgreen4", "firebrick3")) +
+  scale_x_date(breaks = date_breaks("1 month"), 
+               labels = date_format("%b-%Y")) +
+  ylab("Average sentiment score") + 
+  ggtitle("$TWTR - Sentiment Over Time") +
+  theme(legend.position = c(0.97,0.97), 
+        legend.text = element_text(size = 8),
+        legend.background = element_rect(color = "black")) +
+  xlab("Date")
+
+
+# BollingerBands plot- VERSION 2 *to combine
+bb_plot_v2 <- ggplot(data= TWTR_df_bb, aes(x = Date, y = Close)) +
+  ggtitle("$TWTR Bollinger Bands (sma = 20)") +
+  ylab("Close price (usd)") +
+  geom_line(size=0.75) +
+  geom_bbands(aes(high = High, low = Low, close = Close), ma_fun = SMA, n = 20, size = 0.75,
+              color_ma = "royalblue4", color_bands = "red1" ) +
+  coord_x_date(xlim = c("2016-11-01", "2017-10-30"), ylim = c(5,30)) +
+  scale_x_date(date_labels = "%b-%Y", date_breaks = "1 month" ) + 
+  theme(plot.caption=element_text(hjust=0.01)) +
+  labs(caption = "Figure 6: Longitudinal sentiment compared to Bollinger Bands (BB) buy indicators for $TWTR\ncontaining tweets posted between November 2016 to November 2017.") +
+  ggplot2::annotate("text", 
+           x = c(buy.date1, buy.date2, buy.date3, buy.date4, buy.date5, buy.date6, buy.date7),
+           y = c(buy.price1, buy.price2, buy.price3, buy.price4, buy.price5, buy.price6, buy.price7),
+           label = sprintf("Buy"), 
+           size = 3, vjust = 2, colour = "blue",fontface = "bold")  
+
+
+# combine BBplot and Sentiment
+grid.arrange(sentPlot, bb_plot_v2)   
+
+
+
+
+###############
+#DRAFTE PLOTS NOT USED
+###############
+
+# Sentiment longitudional plot: WITHOUT LEGEND
+ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
   geom_line(size = 0.75, alpha = 0.7, aes(color = sentiment)) +
   geom_point(size = 0.5) +
   ylim(0, NA) + 
@@ -314,48 +370,6 @@ sentLongPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanva
   ggtitle("$TWTR - Sentiment Over Time")
 
 
-# Sentiment longitudional plot - Corrected legend
-# sentPlot <- 
-
-sentPlot <- 
-  
-ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue, group = sentiment)) +
-  geom_line(size = 0.75, alpha = 1, aes(color = sentiment)) +
-  geom_point(size = 0.5) +
-  ylim(0, NA) + 
-  scale_colour_manual(values = c("springgreen4", "firebrick3")) +
-  scale_x_date(breaks = date_breaks("1 month"), 
-               labels = date_format("%b-%Y")) +
-  ylab("Average sentiment score") + 
-  ggtitle("$TWTR - Sentiment Over Time") +
-  theme(legend.position = c(0.95,0.95), 
-        legend.text = element_text(size = 8),
-        legend.background = element_rect(color = "black")) +
-  xlab("Date")
-
-# BollingerBands plot- VERSION 2 *to combine
-bb_plot_v2 <- ggplot(data= TWTR_df_bb, aes(x = Date, y = Close)) +
-  ggtitle("$TWTR Bollinger Bands (sma = 20)") +
-  ylab("Close price (usd)") +
-  geom_line(size=0.75) +
-  geom_bbands(aes(high = High, low = Low, close = Close), ma_fun = SMA, n = 20, size = 0.75,
-              color_ma = "royalblue4", color_bands = "red1" ) +
-  coord_x_date(xlim = c("2016-11-01", "2017-10-30"), ylim = c(5,30)) +
-  scale_x_date(date_labels = "%b-%Y", date_breaks = "1 month" ) + 
-  annotate("text", x = c(buy.date1, buy.date2, buy.date3, buy.date4,buy.date5, buy.date6, buy.date7), 
-           y = c(buy.price1, buy.price2, buy.price3, buy.price4, buy.price5, buy.price6, buy.price7), 
-           label = sprintf("Buy", buy.date1), size = 3, 
-           vjust = 2, colour = "blue",fontface = "bold") +
-  theme(plot.caption=element_text(hjust=0.01)) +
-  labs(caption = "Fig. 1. Longitudinal sentiment compared to Bollinger Bands (BB) buy indicators.")
-
-
-
-# combine BBplot and Sentiment
-grid.arrange(sentPlot, bb_plot_v2)   
-
-
-
 # BollingerBands plot -  VERSION 1
 TWTR_df_bb %>%
   ggplot(aes(x = Date, y = Close)) +
@@ -365,12 +379,7 @@ TWTR_df_bb %>%
   geom_bbands(aes(high = High, low = Low, close = Close), ma_fun = SMA, n = 20, size = 0.75,
               color_ma = "royalblue4", color_bands = "red1") +
   coord_x_date(xlim = c("2017-04-01", "2017-10-30"), ylim = c(5,30)) +
-  scale_x_date(date_labels = "%b %d %y", date_breaks = "1 month" ) +
-  annotate("text", x = c(buy.date1, buy.date2, buy.date3, buy.date4,buy.date5, buy.date6, buy.date7), 
-           y = c(buy.price1, buy.price2, buy.price3, buy.price4, buy.price5, buy.price6, buy.price7), 
-           label = sprintf("Buy", buy.date1), size = 3, 
-           vjust = 2, colour = "blue",fontface = "bold")
-
+  scale_x_date(date_labels = "%b %d %y", date_breaks = "1 month" ) 
 
 
 
