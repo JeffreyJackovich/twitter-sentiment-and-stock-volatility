@@ -82,7 +82,7 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 
 ## 3. Results: 
-<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/longitudinalSentAndBolligerBand__twtr.png"> </p>
+<p><img width="1000"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/longitudinalSentAndBB_twtw__by2months.png"> </p>
  
 <br>
 <br>
