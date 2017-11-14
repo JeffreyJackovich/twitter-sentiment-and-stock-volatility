@@ -67,9 +67,14 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 ### 2.4 Tweet's Pre-Processing 
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/historical_tweet_pre-sentiment_diligence.R">Tweets diligence</a></ul>
 <ul><ul>Number of Characters per Tweet</ul></ul>
-<ul><ul><p><img width="500"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/numOfCharsPerTweet__twtr.png"> </p></ul></ul>
+<ul><ul><img width="500"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/numOfCharsPerTweet__twtr.png"></ul></ul>
+
 <ul><ul>Number of Words per Tweet</ul></ul>
+<ul><ul><img width="500"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/numOfWordsPerTweet__twtr.png"></ul></ul>
+
 <ul><ul>Number of Unique Words per Tweet</ul></ul>
+<ul><ul><img width="500"  src="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/plots/updated_plots/numOfUniqueWordsPerTweet__twtr.png"></ul></ul>
+
 
 ### 2.5 Twitter Sentiment Corpus
 <ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/sentiment_pre-processing_and_analysis.R">Sentiment Analysis</a></ul>
