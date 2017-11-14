@@ -47,21 +47,21 @@ Analysis, we discuss a few characteristics of Twitter:
  
 ## 2. Methodology: 
 I used Twitter's "cashtag" symbol \$ and stock symbol ("TWTR") to obtain Twitter's stock sentiment, to determine if there was a correlation between sentiment and stock price.[2] [3] 
-I also obtained Twitters stock price data to assess how accurate  Bollinger Bands® are as a technical indicator.
+I also obtained Twitters stock price data to assess how accurate  Bollinger BandsÂ® are as a technical indicator.
 
 
 ### 2.1 Stock Price Dataset
-<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R">Obtain historical stock data</a> via Google Finance.</ul>
+<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R">Obtain historical stock data</a> via Google Finance</ul>
 
 
 ### 2.2 Technical Indicator
-<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger Bands ®</a></ul>
+<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger Bands Â®</a></ul>
 
 
-### 2.3 Tweet Dataset sourcing options
-<ul>a.<a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_twitterAPI.R">Twitter API</a></ul>
+### 2.3 Tweet Dataset source options:
+<ul>a. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_twitterAPI.R">Twitter API</a></ul>
 
-<ul>b.<a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_GetOldTweets-python.py">GetOldTweets-python</a></ul>
+<ul>b. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_tweets_via_GetOldTweets-python.py">GetOldTweets-python</a></ul>
 
 
 ### 2.4 Tweet's Pre-Processing 
