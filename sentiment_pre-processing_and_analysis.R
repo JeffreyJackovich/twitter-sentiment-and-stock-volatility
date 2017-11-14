@@ -319,7 +319,7 @@ sentPlot <- ggplot(data = posnegtime, aes(x = as.Date(date_time), y = meanvalue,
   geom_point(size = 0.5) +
   ylim(0, NA) + 
   scale_colour_manual(values = c("springgreen4", "firebrick3")) +
-  scale_x_date(breaks = date_breaks("1 month"), 
+  scale_x_date(breaks = date_breaks("2 month"), 
                labels = date_format("%b-%Y")) +
   ylab("Average sentiment score") + 
   ggtitle("$TWTR - Sentiment Over Time") +
@@ -337,7 +337,7 @@ bb_plot_v2 <- ggplot(data= TWTR_df_bb, aes(x = Date, y = Close)) +
   geom_bbands(aes(high = High, low = Low, close = Close), ma_fun = SMA, n = 20, size = 0.75,
               color_ma = "royalblue4", color_bands = "red1" ) +
   coord_x_date(xlim = c("2016-11-01", "2017-10-30"), ylim = c(5,30)) +
-  scale_x_date(date_labels = "%b-%Y", date_breaks = "1 month" ) + 
+  scale_x_date(date_labels = "%b-%Y", date_breaks = "2 month" ) + 
   theme(plot.caption=element_text(hjust=0.01)) +
   labs(caption = "Figure 6: Longitudinal sentiment compared to Bollinger Bands (BB) buy indicators for $TWTR\ncontaining tweets posted between November 2016 to November 2017.") +
   ggplot2::annotate("text", 
