@@ -51,11 +51,11 @@ I also obtained Twitters stock price data to assess how accurate  Bollinger Band
 
 
 ### 2.1 Stock Price Dataset
-<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R">Obtain historical stock data</a> via Google Finance</ul>
+<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/obtain_historical_stock_data.R" target="_blank">Obtain historical stock data</a> via Google Finance</ul>
 
 
 ### 2.2 Technical Indicator
-<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R">Technical Indicator Analysis: Bollinger Bands®</a></ul>
+<ul><a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators/blob/master/technical_indicator1__bollinger_band.R" target="_blank">Technical Indicator Analysis: Bollinger Bands®</a></ul>
 
 
 ### 2.3 Tweet Dataset source options:
