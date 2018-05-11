@@ -3,7 +3,7 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
 
 ### Jeffrey Jackovich
 ### October, 2017
-
+<br><br>
 # Contents
 <div>
     <ul>1. <a href="https://github.com/JeffreyJackovich/twitter_sentiment_analysis_and_correlated_trading_indicators#1-introduction">Introduction</a></ul>
