@@ -2,6 +2,7 @@ Sentiment Analysis of "$TWTR" and Technical Indicator Correlation
 =================================================================
 
 ### Jeffrey Jackovich
+### MET CS 688 Web Analytics and Mining
 ### October, 2017
 <br><br>
 # Contents
